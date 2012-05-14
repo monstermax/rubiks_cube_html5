@@ -1,0 +1,183 @@
+<html>
+<head>
+	<style>
+	body {
+		/* background-color:#EEEEEE; */
+	}
+	.buttons {
+		clear:both;
+	}
+	.buttons span {
+		float:left;
+	}
+	.buttons a {
+		width:50px;
+		height:30px;
+		line-height:30px;
+		background-color:white;
+		border:solid 1px red;
+		float:left;
+		margin: 2px;
+		text-align:center;
+		text-decoration:none;
+	}
+	.buttons a:hover {
+		background-color:#EEEEEE;
+	}
+	
+	fieldset.cube {
+		float:left;
+	}
+	div.cubes {
+		/* clear:both; */
+	}
+	</style>
+	<script src="pre3d.js"></script>
+	<script src="pre3d_shape_utils.js"></script>
+	<script src="pre3d_demo_utils.js"></script>
+	<script src="pre3dCube.js"></script>
+	<script>
+	var rubik_cube, rubik_cube2, rubik_cube3, rubik_cube4, rubik_cube5, rubik_cube6, rubik_cube7, rubik_cube11;
+	
+	function initRubikCube() {
+		rubik_cube2 = new RubikCube('div_canvas2', 2);
+		rubik_cube3 = new RubikCube('canvas3');
+		rubik_cube4 = new RubikCube('canvas4', 4);
+		rubik_cube5 = new RubikCube('canvas5', 5);
+		rubik_cube6 = new RubikCube('canvas6', 6);
+		rubik_cube7 = new RubikCube('canvas7', 7);
+		rubik_cube11 = new RubikCube('div_canvas11', 11);
+		
+		rubik_cube = rubik_cube3;
+	}
+
+	window.onload = function () {
+		initRubikCube();
+	}
+	</script>
+</head>
+<body>
+	<fieldset>
+		<legend>
+			Commands
+			<label><input type="radio" name="radio_canvas" onclick="rubik_cube=rubik_cube2;" />Cube2</label>
+			<label><input type="radio" name="radio_canvas" onclick="rubik_cube=rubik_cube3;" checked />Cube3</label>
+			<label><input type="radio" name="radio_canvas" onclick="rubik_cube=rubik_cube4;" />Cube4</label>
+			<label><input type="radio" name="radio_canvas" onclick="rubik_cube=rubik_cube5;" />Cube5</label>
+			<label><input type="radio" name="radio_canvas" onclick="rubik_cube=rubik_cube6;" />Cube6</label>
+			<label><input type="radio" name="radio_canvas" onclick="rubik_cube=rubik_cube7;" />Cube7</label>
+			<label><input type="radio" name="radio_canvas" onclick="rubik_cube=rubik_cube11;" />Cube11</label>
+		</legend>
+		<div class="buttons">		
+			<a href="javascript:void(0);" onclick="rubik_cube.reset()">reset</a> 
+			<a href="javascript:void(0);" onclick="rubik_cube.scramble()">mix</a> 
+			<a href="javascript:void(0);" onclick="rubik_cube.scramble(true)">demo</a> 
+			<a href="javascript:void(0);" onclick="rubik_cube.test1()">test1</a> 
+			<a href="javascript:void(0);" onclick="rubik_cube.test2()">test2</a> 
+			<a href="javascript:void(0);" onclick="rubik_cube.test3()">test3</a>
+			<a href="javascript:void(0);" onclick="rubik_cube.test4()">test4</a>
+		</div>
+		<div class="buttons">
+			<a href="javascript:void(0);" onclick="rubik_cube.move('x')">x</a> &nbsp; <a href="javascript:void(0);" onclick="rubik_cube.move('x\'')">x'</a>
+			<a href="javascript:void(0);" onclick="rubik_cube.move('y')">y</a> &nbsp; <a href="javascript:void(0);" onclick="rubik_cube.move('y\'')">y'</a>
+			<a href="javascript:void(0);" onclick="rubik_cube.move('z')">z</a> &nbsp; <a href="javascript:void(0);" onclick="rubik_cube.move('z\'')">z'</a>
+		</div>
+		<div class="buttons">
+			<a href="javascript:void(0);" onclick="rubik_cube.move('U')">U</a> &nbsp; <a href="javascript:void(0);" onclick="rubik_cube.move('U\'')">U'</a>
+			<a href="javascript:void(0);" onclick="rubik_cube.move('F')">F</a> &nbsp; <a href="javascript:void(0);" onclick="rubik_cube.move('F\'')">F'</a>
+		</div>
+		<div class="buttons">
+			<a href="javascript:void(0);" onclick="rubik_cube.move('D')">D</a> &nbsp; <a href="javascript:void(0);" onclick="rubik_cube.move('D\'')">D'</a>
+			<a href="javascript:void(0);" onclick="rubik_cube.move('B')">B</a> &nbsp; <a href="javascript:void(0);" onclick="rubik_cube.move('B\'')">B'</a>
+		</div>
+		<div class="buttons">
+			<a href="javascript:void(0);" onclick="rubik_cube.move('L')">L</a> &nbsp; <a href="javascript:void(0);" onclick="rubik_cube.move('L\'')">L'</a>
+			<a href="javascript:void(0);" onclick="rubik_cube.move('R')">R</a> &nbsp; <a href="javascript:void(0);" onclick="rubik_cube.move('R\'')">R'</a>
+		</div>
+	</fieldset>
+	
+	
+	<div class="cubes">
+		<fieldset class="cube">
+			<legend>Cube 2</legend>
+			<div id="div_canvas2" style="width:150px; height:150px;"></div>
+		</fieldset>
+		<fieldset class="cube">
+			<legend>Cube 3</legend>
+			<canvas id="canvas3" width="150" height="150">
+			  Sorry, this demo requires a web browser which supports HTML5 canvas!
+			</canvas>
+		</fieldset>
+		<fieldset class="cube">
+			<legend>Cube 4</legend>
+			<canvas id="canvas4" width="150" height="150">
+			  Sorry, this demo requires a web browser which supports HTML5 canvas!
+			</canvas>
+		</fieldset>
+		<fieldset class="cube">
+			<legend>Cube 5</legend>
+			<canvas id="canvas5" width="150" height="150">
+			  Sorry, this demo requires a web browser which supports HTML5 canvas!
+			</canvas>
+		</fieldset>
+		<fieldset class="cube">
+			<legend>Cube 6</legend>
+			<canvas id="canvas6" width="150" height="150">
+			  Sorry, this demo requires a web browser which supports HTML5 canvas!
+			</canvas>
+		</fieldset>
+		<fieldset class="cube">
+			<legend>Cube 7</legend>
+			<canvas id="canvas7" width="150" height="150">
+			  Sorry, this demo requires a web browser which supports HTML5 canvas!
+			</canvas>
+		</fieldset>
+		<fieldset class="cube">
+			<legend>Cube 11</legend>
+			<div id="div_canvas11" style="width:150px; height:150px;"></div>
+		</fieldset>
+	</div>
+	
+	
+	<div id="cube2d">
+		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+		version="1.1" viewBox="-0.9 -0.9 1.8 1.8" style="width: 145px; height: 145px;">
+		    <g stroke-width="0.1" stroke-linejoin="round">
+		        <polygon fill="#000000" stroke="#000000" points="-4.8052332674690084e-17,-0.6509481284643082 0.6940105265514466,-0.44476107515439284 6.290087311824452e-17,-0.17486063625847098 -0.6940105265514466,-0.44476107515439284" />
+		        <polygon fill="#000000" stroke="#000000" points="6.290087311824452e-17,-0.17486063625847098 0.6940105265514466,-0.44476107515439284 0.6377287910037541,0.40869256573547796 5.708458770404793e-17,0.7733049253127923" />
+		        <polygon fill="#000000" stroke="#000000" points="-0.6940105265514466,-0.44476107515439284 6.290087311824452e-17,-0.17486063625847098 5.708458770404793e-17,0.7733049253127923 -0.6377287910037541,0.40869256573547796" />
+		    </g>
+		    <g stroke-width="0" stroke-linejoin="round">
+		        <polygon fill="#ffd200" stroke="#000000" class="faceletu" points="-4.832589364436122e-17,-0.6819989646055803 0.19205298057808454,-0.6249409854686512 -1.6664989365751876e-17,-0.5630097947502152 -0.19205298057808462,-0.6249409854686512" />
+		        <polygon fill="#ffd200" stroke="#000000" class="faceletu" points="0.22745655857554786,-0.6139544076177659 0.435912412570688,-0.5520232168993299 0.2445911480572966,-0.4845666470595589 0.035403577997463326,-0.5520232168993299" />
+		        <polygon fill="#8c000f" stroke="#000000" class="faceletr" points="0.4744869554822304,-0.5400508247542378 0.7015408310885053,-0.4725942549144668 0.5118879899711785,-0.39883833465519314 0.2831656909688389,-0.4725942549144668" />
+		        <polygon fill="#ffd200" stroke="#000000" class="faceletu" points="-0.22745655857554795,-0.6139544076177659 -0.035403577997463354,-0.5520232168993299 -0.2445911480572966,-0.4845666470595589 -0.43591241257068813,-0.55202321689933" />
+		        <polygon fill="#ffd200" stroke="#000000" class="faceletu" points="-1.169352098194512e-17,-0.5400508247542378 0.20918757005983324,-0.4725942549144668 1.2988883089255465e-17,-0.39883833465519314 -0.20918757005983324,-0.4725942549144668" />
+		        <polygon fill="#ffd200" stroke="#000000" class="faceletu" points="0.24791109860545488,-0.45949683333290087 0.4766333976077944,-0.3857409130736272 0.26840261533616677,-0.3047600383223171 0.03872352854562164,-0.3857409130736272"/>
+		        <polygon fill="#ffd200" stroke="#000000" class="faceletu" points="-0.4744869554822305,-0.5400508247542379 -0.2831656909688389,-0.4725942549144668 -0.5118879899711785,-0.39883833465519314 -0.7015408310885053,-0.4725942549144668"/>
+		        <polygon fill="#ffd200" stroke="#000000" class="faceletu" points="-0.24791109860545485,-0.45949683333290087 -0.03872352854562161,-0.3857409130736272 -0.26840261533616666,-0.3047600383223171 -0.47663339760779433,-0.3857409130736271"/>
+		        <polygon fill="#8c000f" stroke="#000000" class="faceletr" points="1.9047923286574143e-17,-0.37135167488883664 0.22967908679054513,-0.29037080013752653 6.303464145165189e-17,-0.20104868763584052 -0.22967908679054508,-0.29037080013752653"/>
+		        <polygon fill="#003373" stroke="#000000" class="faceletf" points="0.019631707468781845,-0.16805797580757828 0.24931079425932695,-0.2573800883092643 0.24212439211497533,0.03553377099306418 0.019631707468781845,0.1365118093001444"/>
+		        <polygon fill="#8c000f" stroke="#000000" class="faceletr" points="0.28742978325974367,-0.273364098805022 0.4956605655313713,-0.3543449735563321 0.4825795029962362,-0.07228024595292794 0.28024338111539204,0.0195497604973065"/>
+		        <polygon fill="#00732f" stroke="#000000" class="faceletb" points="0.5303397491922494,-0.3688907486578253 0.7199925903095762,-0.442646668917099 0.7020586525421048,-0.17069726412003422 0.5172586866571143,-0.08682602105442117"/>
+		        <polygon fill="#8c000f" stroke="#000000" class="faceletr" points="0.01903608948624952,0.1876626802542634 0.241528774132443,0.0866846419471832 0.23477843699707668,0.36182472765280926 0.01903608948624952,0.4728601616960052"/>
+		        <polygon fill="#8c000f" stroke="#000000" class="faceletr" points="0.2785220315728884,0.06883940083181711 0.48085815345373256,-0.022990605618417315 0.4685359274497095,0.24271145887037449 0.2717716944375221,0.34397948653744315"/>
+		        <polygon fill="#8c000f" stroke="#000000" class="faceletr" points="0.5146099974822057,-0.039275764836104274 0.6994099633671962,-0.1231470079017173 0.6824725485867009,0.13369116830246996 0.5022877714781827,0.22642629965268757"/>
+		        <polygon fill="#8c000f" stroke="#000000" class="faceletr" points="0.0184755488827775,0.5208719767655674 0.23421789639360463,0.40983654272237147 0.22786510288758838,0.6687729654023344 0.018475548882777484,0.7884884627007559"/>
+		        <polygon fill="#8c000f" stroke="#000000" class="faceletr" points="0.27015011538881867,0.39037917697490876 0.4669143484010061,0.28911114930784004 0.4552867896510672,0.5398342218934902 0.26379732188280236,0.6493155996548716"/>
+		        <polygon fill="#8c000f" stroke="#000000" class="faceletr" points="0.4997868362844188,0.27130757711526676 0.679971613392937,0.17857244576504921 0.663949907200969,0.4215248591854889 0.48815927753447985,0.5220306497009168"/>
+		        <polygon fill="#003373" stroke="#000000" class="faceletf" points="-0.7204207851830177,-0.4417541404341867 -0.5307679440656907,-0.36799822017491296 -0.5176868815305558,-0.08593349257150881 -0.7024868474155462,-0.16980473563712187"/>
+		        <polygon fill="#003373" stroke="#000000" class="faceletf" points="-0.4961806826246757,-0.35338769722995633 -0.28794990035304796,-0.2724068224786463 -0.2807634982086964,0.020507036823682184 -0.48309962008954066,-0.07132296962655223"/>
+		        <polygon fill="#ffd200" stroke="#000000" class="faceletu" points="-0.24994488856618138,-0.2563516242676118 -0.020265801775636277,-0.16702951176592584 -0.020265801775636277,0.1375402733417968 -0.24275848642182984,0.03656223503471662"/>
+		        <polygon fill="#003373" stroke="#000000" class="faceletf" points="-0.6998171859062967,-0.12236490011189921 -0.5150172200213062,-0.03849365704628617 -0.5026949940172831,0.2272084074425057 -0.6828797711258014,0.1344732760922881"/>
+		        <polygon fill="#003373" stroke="#000000" class="faceletf" points="-0.48134979070684936,-0.02215783904046134 -0.2790136688260051,0.06967216740977308 -0.27226333169063877,0.34481225311539915 -0.4690275647028263,0.24354422544833054"/>
+		        <polygon fill="#003373" stroke="#000000" class="faceletf" points="-0.24212439211497527,0.08757205921801695 -0.019631707468781734,0.18855009752509716 -0.019631707468781734,0.47374757896683894 -0.23537405497960895,0.362712144923643"/>
+		        <polygon fill="#003373" stroke="#000000" class="faceletf" points="-0.6803593322848808,0.1792580921619796 -0.5001745551763626,0.27199322351219724 -0.4885469964264237,0.5227162960978473 -0.6643376260929127,0.42221050558241924"/>
+		        <polygon fill="#003373" stroke="#000000" class="faceletf" points="-0.46737976886370514,0.28983585666910305 -0.27061553585151765,0.3911038843361716 -0.2642627423455014,0.6500403070161346 -0.4557522101137663,0.540558929254753"/>
+		        <polygon fill="#003373" stroke="#000000" class="faceletf" points="-0.23477843699707662,0.410602430656656 -0.019036089486249408,0.5216378646998521 -0.019036089486249408,0.7892543506350405 -0.22842564349106032,0.669538853336619"/>
+		    </g>
+		</svg>
+	</div>
+	
+</body>
+</html>
