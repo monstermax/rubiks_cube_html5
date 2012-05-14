@@ -1,4 +1,7 @@
 rubiks_cube_html5
 =================
 
-rubik's cube (using html5/javascript/pre3d.js)
+Rubik's cube demo
+using html5/javascript and pre3d.js : https://github.com/deanm/pre3d
+
+Demo: http://test.monstermax.net/cube/pre3dCube.html
